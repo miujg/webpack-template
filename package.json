@@ -1,0 +1,25 @@
+{
+  "name": "webpack-template",
+  "version": "1.0.0",
+  "description": "webpack student",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "dev": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miujg/webpack-template.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/miujg/webpack-template/issues"
+  },
+  "homepage": "https://github.com/miujg/webpack-template#readme",
+  "devDependencies": {
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  }
+}
