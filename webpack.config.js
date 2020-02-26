@@ -27,11 +27,11 @@ module.exports = {
         contentBase: './dist',
         compress: true,
         // 数据mock
-        // before(app) {
-        //     app.get('/user', (req, res) => {
-        //         res.json({name: 'jgmiu-mock'})
-        //     })
-        // },
+        before(app) {
+            app.get('/user', (req, res) => {
+                res.json({name: 'jgmiu-mock'})
+            })
+        },
         // 代理的配置
         // proxy: {
         //     // 常用的开发模式下的代理配置，解决跨域
@@ -40,6 +40,17 @@ module.exports = {
         //         pathRewrite: {'^/api': ''},
         //     }
         // }
+    },
+    resolve: { // 指定第三方包的路径
+        // 在这下面找，找不到不会向上找
+        modules: [path.resolve('node_modules')],
+        // 入口字段
+        // mainFields: ['style', 'main'],
+        // 扩展名省略
+        // 别名
+        alias: {
+            bootstrap: 'bootstrap/dist/css/bootstrap.css'
+        }
     },
     // 配置插件
     plugins: [
