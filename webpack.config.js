@@ -17,15 +17,29 @@ module.exports = {
     output: {
         filename: 'bundle.js', // 可以配置hash: bundle.[hash:8].js
         path: path.resolve(__dirname, 'dist'),
-        publicPath: 'http://127.0.0.1:3000/'
+        // publicPath: 'http://127.0.0.1:8080/'
     },
     // webpack serve 配置
     devServer: {
-        port: 3000,
+        port: 8080,
         // 进度条
         progress: true,
         contentBase: './dist',
-        compress: true
+        compress: true,
+        // 数据mock
+        // before(app) {
+        //     app.get('/user', (req, res) => {
+        //         res.json({name: 'jgmiu-mock'})
+        //     })
+        // },
+        // 代理的配置
+        // proxy: {
+        //     // 常用的开发模式下的代理配置，解决跨域
+        //     '/api': {
+        //         target: 'http://localhost:3000',
+        //         pathRewrite: {'^/api': ''},
+        //     }
+        // }
     },
     // 配置插件
     plugins: [
