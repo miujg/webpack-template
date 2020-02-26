@@ -47,6 +47,7 @@ module.exports = {
         // 入口字段
         // mainFields: ['style', 'main'],
         // 扩展名省略
+        extensions: ['.js','.jsx'],
         // 别名
         alias: {
             bootstrap: 'bootstrap/dist/css/bootstrap.css'
@@ -67,10 +68,13 @@ module.exports = {
         new webpack.ProvidePlugin({
             // 全局变量引入
             // $: 'jquery'
-        })
+        }),
+        // 忽略插件
+        new webpack.IgnorePlugin(/\.\/locale/, /moment/)
     ],
     // 模块
     module: {
+        noParse: /jquery/,
         rules: [
             // 图片处理
             {
@@ -91,11 +95,12 @@ module.exports = {
                 test: /.js$/, 
                 // 一定要加这个 不然babel回去解析第三方依赖，造成报错
                 exclude: /(node_modules|bower_components)/,
+                include: path.resolve('src' ),
                 use: [
                     {
                         loader: 'babel-loader',
                         options: {
-                            presets: ['@babel/preset-env'],
+                            presets: ['@babel/preset-env', '@babel/preset-react'],
                             plugins: [
                                 // 装饰器 顺序必须在claa后面
                                 ["@babel/plugin-proposal-decorators", { "legacy": true }],
