@@ -70,7 +70,11 @@ module.exports = {
             // $: 'jquery'
         }),
         // 忽略插件
-        new webpack.IgnorePlugin(/\.\/locale/, /moment/)
+        new webpack.IgnorePlugin(/\.\/locale/, /moment/),
+        // 动态连接库
+        new webpack.DllReferencePlugin({
+            manifest: path.resolve(__dirname, 'dist', 'dll', 'manifest.json' )
+        })
     ],
     // 模块
     module: {
